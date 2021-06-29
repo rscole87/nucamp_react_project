@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import Directory from "./DirectoryComponent";
 import { CAMPSITES } from "../shared/campsites";
+import { COMMENTS } from "../shared/comments";
+import { PARTNERS } from "../shared/partners";
+import { PROMOTIONS } from "../shared/promotions";
 import CampsiteInfo from "./CampsiteInfoComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Contact from "./ContactComponent";
-import { COMMENTS } from "../shared/comments";
-import { PARTNERS } from "../shared/partners";
-import { PROMOTIONS } from "../shared/promotions";
+import About from "../components/AboutComponent"
 
 class Main extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class Main extends Component {
           <Route exact path="/directory" render={() => <Directory campsites={this.state.campsites} />} />
           <Route path="/directory/:campsiteId" component={CampsiteWithId} />
           <Route exact path="/contactus" component={Contact} />
+          <Route exact path="/aboutus" render={() => <About partners={this.state.partners} />} />
           <Redirect to="/home" />
         </Switch>
         <Footer />
