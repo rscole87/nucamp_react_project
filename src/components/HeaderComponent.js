@@ -32,7 +32,7 @@ class Header extends Component {
     alert(`Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked}`);
     this.toggleModal();
     event.preventDefault();
-}
+  }
 
   render() {
     return (
@@ -96,18 +96,16 @@ class Header extends Component {
                 <Label htmlFor="username">Username</Label>
                 <Input type="text" id="username" name="username" innerRef={(input) => (this.username = input)} />
               </FormGroup>
-
               <FormGroup>
                 <Label htmlFor="password">Password</Label>
                 <Input type="password" id="password" name="password" innerRef={(input) => (this.password = input)} />
               </FormGroup>
-
               <FormGroup check>
                 <Label check>
-                  <input type="checkbox" name="remember" innerRef={(input) => (this.remember = input)} /> Remember
+                  <Input type="checkbox" name="remember" innerRef={(input) => (this.remember = input)} />
+                  Remember me
                 </Label>
               </FormGroup>
-
               <Button type="submit" value="submit" color="primary">
                 Login
               </Button>
