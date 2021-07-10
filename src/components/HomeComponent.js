@@ -1,21 +1,22 @@
 import React from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
+import { baseUrl } from "../shared/baseUrl";
 import { Loading } from "./LoadingComponent";
 
 function RenderCard({ item, isLoading, errMess }) {
-    if(isLoading){
-        return <Loading />
-    }
+  if (isLoading) {
+    return <Loading />;
+  }
 
-    if(errMess){
-        return <h4>{errMess}</h4>
-    }
+  if (errMess) {
+    return <h4>{errMess}</h4>;
+  }
 
-    console.log(item.image)
+  console.log(item.image);
 
   return (
     <Card>
-      <CardImg src={item.image} alt={item.name} />
+      <CardImg src={baseUrl + item.image} alt={item.name} />
       <CardBody>
         <CardTitle>{item.name}</CardTitle>
         <CardText>{item.description}</CardText>
@@ -25,21 +26,15 @@ function RenderCard({ item, isLoading, errMess }) {
 }
 
 function Home(props) {
-
-  console.log(props.campsite)
   return (
     <div className="container">
       <div className="row">
         <div className="col-md m1">
-          <RenderCard 
-            item={props.campsite} 
-            isLoading={props.campsitesLoading}
-            errMess={props.campsitesErrMess}
-        />
+          <RenderCard item={props.campsite} isLoading={props.campsitesLoading} errMess={props.campsitesErrMess} />
         </div>
 
         <div className="col-md m1">
-          <RenderCard item={props.promotion} />
+          <RenderCard item={props.promotion} isLoading={props.promotionLoading} errMess={props.promotionErrMess} />
         </div>
 
         <div className="col-md m1">
